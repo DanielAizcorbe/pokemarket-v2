@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: whitesmoke;
+}
+
+@keyframes rollPokeball {
+
+    0% {
+        translate: 10px 0;
+        rotate: 10deg;
+    }
+
+    25% {
+        translate: -10px 0;
+        rotate: -10deg;
+    }
+
+    50% {
+        translate: -10px 0;
+        rotate: -10deg;
+    }
+
+    75% {
+        translate: 10px 0;
+        rotate: 10deg;
+    }
+
+    100% {
+        translate: 10px 0;
+        rotate: 10deg;
+    }
+}
+
+@keyframes rollPokeball2 {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(-10px) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateX(10px) rotate(10deg);
+    }
+
+    75% {
+        transform: translateX(-10px) rotate(-10deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+.pokeball {
+    animation: rollPokeball2 1.5s linear infinite;
+}
+
+.pokeball-static:hover {
+    animation: rollPokeball2 1.5s linear forwards;
+}
