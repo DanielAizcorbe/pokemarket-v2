@@ -4,8 +4,8 @@ import Link from "next/link"
 interface AnuncioProps {
     title: string,
     srcImage: string,
-    animation: string,
-    classes: string,
+    animation?: string,
+    classes?: string,
     showMorePage: string
 }
 
