@@ -1,0 +1,9 @@
+const OtrosDatos = () => {
+    return (
+        <div className='w-1/3 h-full text-white flex justify-center border-r-white border-r-2'>
+            Otros Datos
+        </div>
+    )
+}
+
+export default OtrosDatos
