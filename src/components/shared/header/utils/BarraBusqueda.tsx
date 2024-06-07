@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const BarraBusqueda = () => {
 
@@ -26,11 +27,11 @@ const BarraBusqueda = () => {
             />
 
             <Link
-                className='rounded-r-lg w-10 h-9 flex justify-center items-center bg-white 
-                hover:bg-cyan-700 hover:text-white hover:transition-colors'
+                className='rounded-r-lg w-10 h-9 flex bg-cyan-700 justify-center items-center
+                hover:bg-cyan-600 hover:transition-colors'
                 href={`#`}
             >
-                Q
+                <FaSearch color="white"/>
             </Link>
         </label>
     )
