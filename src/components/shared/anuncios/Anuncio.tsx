@@ -6,7 +6,7 @@ interface AnuncioProps {
     srcImage: string,
     animation: string,
     classes: string,
-
+    showMorePage: string
 }
 
 const Anuncio = (props: AnuncioProps) => {
@@ -24,7 +24,7 @@ const Anuncio = (props: AnuncioProps) => {
                 height={100}
                 className={`${props.animation} ${props.classes} `}
             />
-            <Link href={"#"} className='text-xl border-b hover:text-slate-300 hover:border-b-slate-300 hover:transition-colors'>
+            <Link href={props.showMorePage} className='text-xl border-b hover:text-slate-300 hover:border-b-slate-300 hover:transition-colors'>
                 Ver más
             </Link>
         </div>
