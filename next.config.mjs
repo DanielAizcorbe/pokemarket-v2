@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
+
+const path = require('path');
+
 const nextConfig = {
     sassOptions: {
-        includePaths: ["./src/sass"],
+        includePaths: [path.join(__dirname, 'src/sass')],
         prependData: "@import 'main.sass'"
     }
 };
