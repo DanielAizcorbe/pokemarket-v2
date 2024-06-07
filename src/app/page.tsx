@@ -1,9 +1,19 @@
-import Image from "next/image";
+import TituloPrincipal from "app/components/pagina-principal/TituloPrincipal";
+import Ofertas from "app/components/pagina-principal/Ofertas";
+import Nuevos from "app/components/pagina-principal/Nuevos";
+import Tendencias from "app/components/pagina-principal/Tendencias";
+import PokemonSponsor from "app/components/shared/anuncios/PokemonSponsor";
 
-export default function Home() {
+export default function page() {
   return (
-    <main className="">
-      <h1>Hola Mundo</h1>
+    <main className="flex flex-col justify-center items-center p-4">
+      <TituloPrincipal />
+      <div className="w-full h-full py-4 flex flex-col gap-4 justify-center items-center">
+        <Ofertas />
+        <Nuevos />
+        <PokemonSponsor />
+        <Tendencias />
+      </div>
     </main>
   );
 }
