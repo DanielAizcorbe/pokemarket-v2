@@ -1,12 +1,14 @@
+import { log } from "console"
 import CardDescription from "./utils/CardDescription"
 import CardImage from "./utils/CardImage"
 import CardPrecio from "./utils/CardPrecio"
 import { getSizeCard } from "./utils/sizeCard"
-import { sizeType } from "./utils/sizes"
+import { distributionType, sizeType } from "./utils/sizes"
 
 interface CardProps {
     articulo?: any,
     size: sizeType,
+    distribution: distributionType
 }
 
 // IMAGEN
@@ -15,7 +17,7 @@ interface CardProps {
 // PRECIO
 
 const articuloPrueba = {
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png",
     description: "Ditto lvl 5 para crianza asdasd qwas d",
     name: "Ditto",
     precioOriginal: 20000,
@@ -25,12 +27,15 @@ const articuloPrueba = {
 
 export const Card = (props: CardProps) => {
 
-    const size = getSizeCard(props.size);
+    const size = getSizeCard(props.size, props.distribution);
+
     const articulo = props.articulo || articuloPrueba;
-    
+    const isVertical = props.distribution === "vertical";
+
+    const containerSize = isVertical ? "min-h-1/2 h-full" : "min-w-1/2 w-full"
     return (
-        <div className={`${size.heightContainer} ${size.widthContainer} ${size.fontSize} p-2 shadow-md rounded-md flex flex-col`}>
-            <div className="min-h-1/2 h-full">
+        <div className={`${size.heightContainer} ${size.widthContainer} ${size.fontSize} p-2 shadow-md rounded-md flex ${isVertical ? "flex-col" : ""}`}>
+            <div className={containerSize}>
                 <CardImage
                     alt={articulo.name}
                     src={articulo.image}

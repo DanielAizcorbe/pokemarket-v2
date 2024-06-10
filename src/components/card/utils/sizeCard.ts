@@ -1,10 +1,18 @@
-import { lgSize, mdSize, sizeType, smSize } from "./sizes";
+import { distributionType, sizeType, sm, md, lg} from "./sizes";
 
-export function getSizeCard(size: sizeType) {
+export function getSizeCard(size: sizeType, distribution: distributionType ) {
+
+    let sizeObject;
+
     switch (size) {
-        case "sm": return smSize;
-        case "md": return mdSize;
-        case "lg": return lgSize;
+        case "sm": sizeObject = sm; break;
+        case "md": sizeObject = md; break;
+        case "lg": sizeObject = lg; break;
         default: throw new Error("size inválido");
     }
+
+    const result = {...sizeObject.generals, ...sizeObject[distribution]};
+    //console.log("result: ", result);
+
+    return result
 }
