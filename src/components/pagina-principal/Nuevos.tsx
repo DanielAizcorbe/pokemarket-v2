@@ -1,3 +1,5 @@
+import getId from "app/data/uuid"
+import { Card } from "../card/Card"
 import Anuncio from "../shared/anuncios/Anuncio"
 import SeccionContainer from "./utils/SeccionContainer"
 
@@ -6,7 +8,8 @@ const Nuevos = () => {
         <SeccionContainer
             title="Nuevos"
         >
-            <div className='flex flex-row gap-4 w-auto justify-center'>
+            <div className='flex flex-row gap-4 w-auto justify-center items-center'>
+                {Array.from({length: 3}).map(e => <Card distribution="vertical" size="md" key={getId()}/>)}
                 <Anuncio
                     animation={"pokeball"}
                     srcImage={"pokeball.svg"}

@@ -10,7 +10,7 @@ const SeccionContainer = (props: SeccionProps) => {
         <div >
             <div className='flex flex-col gap-2 max-w-5xl'>
                 <h3 className='text-left font-medium text-2xl'>{props.title}</h3>
-                <div className='bg-white py-4 px-2 flex items-center flex-wrap justify-center'>
+                <div className='gap-2 bg-white py-4 px-2 flex items-center flex-wrap justify-center'>
                     {props.children}
                 </div>
             </div>
