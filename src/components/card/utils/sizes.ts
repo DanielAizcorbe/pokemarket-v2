@@ -29,7 +29,7 @@ const mdVerticalSize = {
 }
 
 const mdHorizontalSize = {
-    heightContainer: "h-44",
+    heightContainer: "h-40",
     widthContainer: "w-80",
 }
 
@@ -45,7 +45,7 @@ const lgVerticalSize = {
 }
 
 const lgHorizontalSize = {
-    heightContainer: "h-52",
+    heightContainer: "h-44",
     widthContainer: "w-96",
 }
 
