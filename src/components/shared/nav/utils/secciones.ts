@@ -20,7 +20,7 @@ export const secciones = [
         path: "/categoria/pociones",
     },
     {
-        name: "Pokemon",
+        name: "Pokemons",
         key: 4,
         path: "/categoria/pokemons",
     },
