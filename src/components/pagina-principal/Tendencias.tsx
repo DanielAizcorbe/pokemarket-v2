@@ -2,8 +2,13 @@ import getId from "app/data/uuid"
 import Anuncio from "../shared/anuncios/Anuncio"
 import SeccionContainer from "./utils/SeccionContainer"
 import { Card } from "../card/Card"
+import { Publicacion } from "app/services/getPokemon"
 
-const Tendencias = () => {
+interface Props {
+    publicaciones: Array<Publicacion>
+}
+
+const Tendencias = (props: Props) => {
     return (
         <SeccionContainer title={"Tendencias"}>
             <div className='w-full h-full flex flex-row justify-around items-center gap-2'>
@@ -12,7 +17,7 @@ const Tendencias = () => {
                     srcImage={"pikachu.svg"}
                     showMorePage={"/"}
                 />
-                {Array.from({ length: 3 }).map(e => <Card distribution="vertical" size="md" key={getId()} />)}
+                {props.publicaciones.map(p => <Card publicacion={p} distribution="vertical" size="md" key={getId()} />)}
             </div>
         </SeccionContainer>
     )

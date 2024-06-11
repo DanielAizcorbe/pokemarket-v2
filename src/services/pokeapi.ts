@@ -15,13 +15,13 @@ export enum Categoria {
 const VERSION_DATA = "emerald"
 export const LENGUAJE_DATA = "es"
 
-const MAX_ID_POKEMON = 151
+export const MAX_ID_POKEMON = 151
 
-export const getFromPokeApi = async (category : Categoria, id: number ) => {
+export const getFromPokeApi = async (category : Categoria, id: number, noCache?: boolean ) => {
     if(id > MAX_ID_POKEMON) {
         throw new Error("Límite excedido");
     }
-    const response = await fetch(`${POKEAPI_URL}${category}${id}`);
+    const response = await fetch(`${POKEAPI_URL}${category}${id}`, {cache: noCache ? "no-cache" : "default"});
     const data = await response.json();
     return data;
 }

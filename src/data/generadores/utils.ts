@@ -1,5 +1,5 @@
 import { TipoArticulo } from "app/services/getPokemon";
-import { LENGUAJE_DATA } from "app/services/pokeapi";
+import { LENGUAJE_DATA, MAX_ID_POKEMON } from "app/services/pokeapi";
 
 function getRandomNumber(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -8,6 +8,11 @@ function getRandomNumber(min: number, max: number) {
 function getRandomBoolean(porcentajeVerdadero: number) {
     return Math.random() < 0.01 * porcentajeVerdadero;
 }
+
+export const getRandomPokemonId = () => {
+    return getRandomNumber(1, MAX_ID_POKEMON);
+}
+
 
 export const estaEnLenguage = (descripcion: any) => {
     return descripcion.language.name === LENGUAJE_DATA;
@@ -32,12 +37,12 @@ export const getOneOf = (lista: Array<any>) => {
 }
 
 export const getDescuento = () => {
-    return getRandomNumber(10,20);
+    return getRandomNumber(10, 20);
 }
 
 export const getPrecio = (tipo: TipoArticulo) => {
-    switch(tipo) {
-        case TipoArticulo.POKEMON: return getRandomNumber(20,90)*1000;
+    switch (tipo) {
+        case TipoArticulo.POKEMON: return getRandomNumber(20, 90) * 1000;
         default: return 10000;
     }
 }
@@ -47,8 +52,9 @@ export const getPrecioDescuento = (precioOriginal: number, descuento: number) =>
 }
 
 export const getImagen = (data: any, tipo: TipoArticulo) => {
-    switch(tipo) {
+    switch (tipo) {
         case TipoArticulo.POKEMON: return data.sprites.front_default;
         default: return data.sprites.default;
     }
 }
+

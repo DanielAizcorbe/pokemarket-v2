@@ -21,7 +21,7 @@ interface Articulo {
     descripcion: string
 }
 
-interface Publicacion {
+export interface Publicacion {
     articulo: Articulo,
     precioOriginal: number,
     descuento: number,
@@ -55,8 +55,8 @@ const generarPublicacion = (data:any, tipo: TipoArticulo) => {
     return publicacion;
 }
 
-const getPokemon = async (pokemon: number) => {
-    const pokemonData = await getFromPokeApi(Categoria.POKEMON_ENDPOINT, pokemon);
+export const getPokemon = async (pokemon: number) => {
+    const pokemonData = await getFromPokeApi(Categoria.POKEMON_ENDPOINT, pokemon, true);
     return generarPublicacion(pokemonData, TipoArticulo.POKEMON);
 }
 

@@ -1,15 +1,18 @@
 import getId from "app/data/uuid"
 import { Card } from "../card/Card"
 import SeccionContainer from "./utils/SeccionContainer"
+import { Publicacion } from "app/services/getPokemon"
 
-const pokemon = Array.from({ length: 6 });
+interface Props {
+    publicaciones: Array<Publicacion>,
+}
 
-const Ofertas = () => {
+export default async function Ofertas(props: Props) {
+
     return (
         <SeccionContainer title="Ofertas">
-            {pokemon.map(e => <Card distribution="vertical" size="sm" key={getId()} />)}
+            {props.publicaciones.map(e => <Card publicacion={e} distribution="vertical" size="sm" key={getId()} />)}
         </SeccionContainer>
     )
 }
 
-export default Ofertas
