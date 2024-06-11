@@ -35,7 +35,7 @@ export const getDescuento = () => {
     return getRandomNumber(10,20);
 }
 
-export const getPrecio = (tipo: TipoArticulo) {
+export const getPrecio = (tipo: TipoArticulo) => {
     switch(tipo) {
         case TipoArticulo.POKEMON: return getRandomNumber(20,90)*1000;
         default: return 10000;
