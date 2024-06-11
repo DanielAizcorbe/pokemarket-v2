@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 export default function layout(props: LayoutProps) {
 
     return (
-        <main>
-            <Filtros />
-            <section>
+        <main className="w-full flex justify-center">
+            <div className="flex flex-row max-w-7xl w-full justify-center">
                 {props.children}
-            </section>
+            </div>
         </main>
+
     );
 }

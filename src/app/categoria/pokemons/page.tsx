@@ -1,38 +1,13 @@
 import { Card } from "app/components/card/Card";
+import getId from "app/data/uuid";
+
+const pokemons = Array.from({length: 9});
 
 export default function page() {
 
     return (
-        <div>
-            <div className="flex flex-row p-4 gap-2">
-                <Card
-                    size={"sm"}
-                    distribution="vertical"
-                />
-                <Card
-                    size={"md"}
-                    distribution="vertical"
-                />
-                <Card
-                    size={"lg"}
-                    distribution="vertical"
-                />
-            </div>
-            <div className="flex flex-row p-4 gap-2">
-                <Card
-                    size={"sm"}
-                    distribution="horizontal"
-                />
-                <Card
-                    size={"md"}
-                    distribution="horizontal"
-                />
-                <Card
-                    size={"lg"}
-                    distribution="horizontal"
-                />
-            </div>
+        <div className="p-6 ">
+            {pokemons.map(_ => <Card distribution="horizontal" size="lg" key={getId()}/>)}
         </div>
-
     )
 }

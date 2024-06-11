@@ -6,7 +6,7 @@ import PokemonSponsor from "app/components/shared/anuncios/PokemonSponsor";
 
 export default function page() {
   return (
-    <main className="flex flex-col justify-center items-center p-4">
+    <>
       <TituloPrincipal />
       <div className="w-full h-full py-4 flex flex-col gap-4 justify-center items-center">
         <Ofertas />
@@ -14,6 +14,6 @@ export default function page() {
         <PokemonSponsor />
         <Tendencias />
       </div>
-    </main>
+    </>
   );
 }

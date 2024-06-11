@@ -5,6 +5,7 @@ import NavBar from "app/components/shared/nav";
 import Footer from "app/components/shared/footer";
 
 import "./globals.css";
+import TituloPrincipal from "app/components/pagina-principal/TituloPrincipal";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex items-center flex-col">
         <Header />
         <NavBar />
-        {children}
+        <main className="flex flex-col max-w-7xl w-full justify-center items-center p-4">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
