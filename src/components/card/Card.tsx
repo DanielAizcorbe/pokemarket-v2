@@ -1,4 +1,3 @@
-import { log } from "console"
 import CardDescription from "./utils/CardDescription"
 import CardImage from "./utils/CardImage"
 import CardPrecio from "./utils/CardPrecio"

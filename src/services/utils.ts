@@ -1,9 +1,13 @@
-import { estaEnLenguage, getOneOf } from "app/data/generadores/utils";
+import { capitalize } from './../data/generadores/utils';
+import { estaEnLenguage, getOneOf, getRandomLevel } from "app/data/generadores/utils";
 import { TipoArticulo } from "./getPokemon";
 
-const getPokemonDescription = () => {
+const getPokemonDescription = (data: any) => {
     const variaciones = ["con IVs perfectos", "para crianza", "para competitivo", "¡como compañero!", "para concursos"]
-    const descripcion = getOneOf(variaciones);
+    const variacion = getOneOf(variaciones);
+    const level = getRandomLevel();
+    const nombre = getName(data, TipoArticulo.POKEMON);
+    const descripcion = `${nombre} lvl ${level} ${variacion}`
     return descripcion;
 }
 export function getSprite(data: any) {
@@ -12,14 +16,14 @@ export function getSprite(data: any) {
 
 export function getName(data: any, tipo: TipoArticulo) {
     switch (tipo) {
-        case TipoArticulo.POKEMON: return data.name;
-        default: return data.names.filter(n => estaEnLenguage(n))[0].name
+        case TipoArticulo.POKEMON: return capitalize(data.name);
+        default: return capitalize(data.names.filter(n => estaEnLenguage(n))[0].name)
     }
 }
 
 export function getDescripcion(data: any, tipo: TipoArticulo) {
     switch (tipo) {
-        case TipoArticulo.POKEMON: return getPokemonDescription();
+        case TipoArticulo.POKEMON: return getPokemonDescription(data);
         default: return "Articulo";
     }
 

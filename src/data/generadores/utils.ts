@@ -9,6 +9,10 @@ function getRandomBoolean(porcentajeVerdadero: number) {
     return Math.random() < 0.01 * porcentajeVerdadero;
 }
 
+export const getRandomLevel = () => {
+    return getRandomNumber(5,99);
+}
+
 export const getRandomPokemonId = () => {
     return getRandomNumber(1, MAX_ID_POKEMON);
 }

@@ -6,9 +6,9 @@ interface DescriptionProps {
 const CardDescription = (props: DescriptionProps) => {
 
     return (
-        <p className={`flex text-wrap truncate p-1 h-2/5`}>
+        <h3 className={`flex text-wrap truncate p-1 h-2/5 font-semibold`}>
             {props.description}
-        </p>
+        </h3>
     )
 }
 
