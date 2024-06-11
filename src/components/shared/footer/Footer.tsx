@@ -3,14 +3,14 @@ import Contacto from './utils/Contacto'
 import OtrosDatos from './utils/OtrosDatos'
 import Redes from './utils/Redes'
 
-type Props = {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
     return (
-        <footer className='flex-row p-4 bg-cyan-950'>
-            <Contacto />
-            <OtrosDatos />
-            <Redes />
+        <footer className='flex justify-center p-4 bg-cyan-950'>
+            <div className='flex flex-row max-w-7xl w-full'>
+                <Contacto />
+                <OtrosDatos />
+                <Redes />
+            </div>
         </footer>
     )
 }
