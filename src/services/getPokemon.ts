@@ -55,7 +55,7 @@ const generarPublicacion = (data:any, tipo: TipoArticulo) => {
     return publicacion;
 }
 
-export const getPokemon = async (pokemon: number) => {
+export const getPokemon = async (pokemon: string) => {
     const pokemonData = await getFromPokeApi(Categoria.POKEMON_ENDPOINT, pokemon, true);
     return generarPublicacion(pokemonData, TipoArticulo.POKEMON);
 }

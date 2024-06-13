@@ -28,3 +28,19 @@ export function getDescripcion(data: any, tipo: TipoArticulo) {
     }
 
 }
+
+export function intersectSets<T>(set1: Set<T>, set2: Set<T>): Set<T> {
+
+    if (set1.size === 0 || set2.size === 0) {
+        return new Set<T>(); // Intersection is empty
+    }
+
+    const intersection = new Set<T>();
+    
+    for (const element of set1) {
+        if (set2.has(element)) {
+            intersection.add(element);
+        }
+    }
+    return intersection;
+}

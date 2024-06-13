@@ -19,6 +19,7 @@ export const Card = (props: CardProps) => {
     const isVertical = props.distribution === "vertical";
 
     const containerSize = isVertical ? "min-h-1/2 h-full" : "min-w-1/2 w-full"
+
     return (
         <div className={`${size.heightContainer} ${size.widthContainer} ${size.fontSize} p-2 shadow-md rounded-md flex ${isVertical ? "flex-col" : ""}`}>
             <div className={containerSize}>
@@ -28,7 +29,7 @@ export const Card = (props: CardProps) => {
                     zoom={size.zoom}
                 />
             </div>
-            <div className="flex flex-col h-full justify-evenly">
+            <div className={`flex flex-col h-full justify-evenly ${containerSize}`}>
                 <CardDescription
                     description={publicacion.articulo.descripcion}
                 />
