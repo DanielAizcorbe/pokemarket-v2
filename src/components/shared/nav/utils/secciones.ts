@@ -2,7 +2,7 @@ export const secciones = [
     {
         name: "Destacados",
         key: 7,
-        path: "/",
+        path: "/destacados",
     },
     {
         name: "MTs",
