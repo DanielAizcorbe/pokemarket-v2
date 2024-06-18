@@ -1,14 +1,24 @@
 import { Card } from "app/components/card/Card";
 import { Filtros } from "app/components/shared/filtros/Filtros";
 import getId from "app/data/uuid";
-import { getPokemonArray } from "app/services/getArrayData";
-import { getFilteredPokemon } from "app/services/getByFiltros";
+import { Filtros as pkFiltros, getFilteredPokemon } from "app/services/pokemon/getByFiltros";
+import { Atributos } from "app/services/typos";
 
 
 export default async function page() {
 
-    const pokemons = await getFilteredPokemon({atributo1:{id: "fire"}});
+    const filtros: pkFiltros = {
+        atributo1: Atributos.AGUA,
+        descuento: true,
+        minLevel: 5,
+        maxLevel: 20,
+        lenght: 10,
+        allShiny: false,
+        evolucionCompleta: false
+    }
 
+    const pokemons = await getFilteredPokemon(filtros);
+    
     return (
         <>
             <Filtros />

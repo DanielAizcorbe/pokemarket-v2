@@ -1,9 +1,9 @@
 import Tendencias from "app/components/pagina-principal/Tendencias";
-import { getPokemonArray } from "app/services/getArrayData";
+import { getRandomPokemons } from "app/services/pokemon/getRandomPokemon";
 
 export default async function page() {
 
-    const publicaciones = await getPokemonArray(3);
+    const publicaciones = await getRandomPokemons(3);
 
     return (
         <Tendencias publicaciones={publicaciones} />
