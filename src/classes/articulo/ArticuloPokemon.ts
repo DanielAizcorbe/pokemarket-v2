@@ -36,4 +36,8 @@ export class PokemonArticulo implements iArticulo {
     getId(): string {
         return this.id;
     }
+
+    getImagenes() {
+        return this.pokemon.imagenes(this.isShiny);
+    }
 }
