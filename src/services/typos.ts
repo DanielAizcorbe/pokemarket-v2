@@ -30,7 +30,7 @@ export enum Atributos {
     HADA = "fairy"
 }
 
-const VERSION_DATA = "emerald"
+export const VERSION_DATA = "emerald"
 
 export const LENGUAJE_DATA = "es"
 
