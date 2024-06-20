@@ -6,7 +6,6 @@ export class Publicacion {
     id: string;
     articulo: iArticulo;
     cantidad: number;
-    tieneDescuento: boolean;
     descuento: number;
     precioOriginal: number;
     precioDescuento: number;
@@ -15,10 +14,29 @@ export class Publicacion {
         this.id = getId();
         this.articulo = articulo;
         this.cantidad = cantidad;
-        this.tieneDescuento = descuento > 0;
         this.precioOriginal = precioOriginal;
         this.descuento = descuento;
         this.precioDescuento = getPrecioDescuento(precioOriginal, descuento);
+    }
+
+    descripcion(): string {
+        return this.articulo.descripcion();
+    }
+
+    tieneDescuento(): boolean {
+        return this.descuento > 0;
+    }
+
+    precio(): number {
+        return (this.tieneDescuento() ? this.precioDescuento : this.precioOriginal);
+    }
+
+    getPrecioOriginal(): number {
+        return this.precioOriginal;
+    }
+
+    getArticulo(): iArticulo {
+        return this.articulo;
     }
 
 }

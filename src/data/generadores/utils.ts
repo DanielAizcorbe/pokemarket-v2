@@ -30,7 +30,7 @@ export const getOneOf = <T>(lista: Array<T>): T => {
 }
 
 export const getDescuento = (withDiscount?: boolean) => {
-    return (withDiscount || getRandomBoolean(20) ? getRandomNumber(10, 20) : 0);
+    return (withDiscount ? getRandomNumber(10, 20) : 0);
 }
 
 export const getPrecioDescuento = (precioOriginal: number, descuento: number) => {

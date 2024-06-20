@@ -1,12 +1,18 @@
 import { Filtros, getFilteredPokemon } from "./getByFiltros";
 
-export async function getRandomPokemons(size: number) {
+interface Levels {
+    maxLevel?: number, 
+    minLevel?: number
+}
+
+export async function getRandomPokemons(size: number, levels?: Levels, allDiscount?: boolean, evoCompleta?: boolean) {
 
     const filtros: Filtros = {
-        maxLevel: 100,
-        minLevel: 5,
+        maxLevel: levels?.maxLevel || 100,
+        minLevel: levels?.minLevel || 5,
         lenght:size,
-        evolucionCompleta: true
+        evolucionCompleta: evoCompleta,
+        descuento: allDiscount
     }
 
     const pokemons = await getFilteredPokemon(filtros);
