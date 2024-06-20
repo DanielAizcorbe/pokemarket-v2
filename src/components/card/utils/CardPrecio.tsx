@@ -7,6 +7,7 @@ interface Props {
 }
 
 const CardPrecio = (props: Props) => {
+    
     return (
         <div className={`flex flex-col justify-end items-start h-3/5`}>
             {
