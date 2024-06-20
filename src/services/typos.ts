@@ -27,7 +27,6 @@ export enum Atributos {
     PSIQUICO = "psychic",
     DRAGON = "dragon",
     SINIESTRO = "dark",
-    HADA = "fairy"
 }
 
 export const VERSION_DATA = "emerald"

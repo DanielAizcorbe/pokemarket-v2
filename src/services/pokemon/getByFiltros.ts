@@ -24,12 +24,17 @@ export async function getFilteredPokemon(filtros: Filtros): Promise<Array<Public
 
     const ids = await getPokemonIdsPorAtributos(filtros.atributo1, filtros.atributo2);
     
-    const idsFiltradosPorEvolucion = await (filtros.evolucionCompleta? idsPokemonEvolucionados(ids) : ids);
+    if (ids.length === 0) {
+        return [];
+    }
     
+    const idsFiltradosPorEvolucion = await (filtros.evolucionCompleta ? idsPokemonEvolucionados(ids) : ids);
+
     const idsFiltradosPorNivel = await filtrarPorNivel(idsFiltradosPorEvolucion, filtros.maxLevel);
-    
+
     const randomsIds = getRandomsIds(filtros.lenght, idsFiltradosPorNivel);
-    
+
+
     const pokemonPromises = randomsIds.map(id => pokemonFromId(id));
     const pokemons = await Promise.all(pokemonPromises);
     const config = {
@@ -38,7 +43,7 @@ export async function getFilteredPokemon(filtros: Filtros): Promise<Array<Public
         allShiny: filtros.allShiny,
         variante: filtros.variante,
     }
-    const publicaciones = generarPublicacionesPokemon(pokemons,config,filtros.descuento);
+    const publicaciones = generarPublicacionesPokemon(pokemons, config, filtros.descuento);
 
     return publicaciones;
 }
