@@ -4,7 +4,6 @@ import { VariantePokemon } from "../pokemon/VariantePokemon";
 import { iArticulo } from "./iArticulo";
 import getId from "app/data/uuid";
 import { CalculadoraPrecioPokemon } from "../pokemon/CalculadoraPrecioPokemon";
-import { Tag } from '../pokemon/Tags';
 
 export class PokemonArticulo implements iArticulo {
 

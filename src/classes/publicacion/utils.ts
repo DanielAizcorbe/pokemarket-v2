@@ -6,7 +6,7 @@ import { PublicacionBuilder } from "./PublicacionBuilder";
 import { iArticulo } from "../articulo/iArticulo";
 
 interface Config {
-    allShinys?: boolean,
+    allShiny?: boolean,
     variante?: VariantePokemon,
     maxLevel: number,
     minLevel: number
@@ -18,6 +18,7 @@ export function generarArticulos(pokemons: Array<Pokemon>, config: Config) {
 }
 
 function generarArticulo(pokemon: Pokemon, config: Config) {
+    
     const artBuilder = new ArtPokemonBuilder(pokemon);
     const minLevel = Math.max(pokemon.minLevelExistencia, config.minLevel);
     const nivel = getRandomNumber(minLevel, config.maxLevel);
@@ -25,7 +26,7 @@ function generarArticulo(pokemon: Pokemon, config: Config) {
     if (config.variante) {
         artBuilder.setVariante(config.variante);
     }
-    if (config.allShinys) {
+    if (config.allShiny) {
         artBuilder.setShiny();
     }
     return artBuilder.build();

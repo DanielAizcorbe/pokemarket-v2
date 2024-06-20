@@ -20,7 +20,7 @@ export default function Tag(props: Props) {
 
 
 export function getTag(tag: Atributos) {
-    console.log(tag);
+    //console.log(tag);
 
     const tagGenerator = (bgColor: string, nombre: string) => {
 
