@@ -2,7 +2,7 @@ import getId from "app/data/uuid"
 import Anuncio from "../shared/anuncios/Anuncio"
 import SeccionContainer from "./utils/SeccionContainer"
 import { Card } from "../card/Card"
-import { Publicacion } from "app/services/getPokemon"
+import { Publicacion } from "app/classes/publicacion/Publicacion"
 
 interface Props {
     publicaciones: Array<Publicacion>

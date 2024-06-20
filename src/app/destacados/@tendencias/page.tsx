@@ -3,7 +3,7 @@ import { getRandomPokemons } from "app/services/pokemon/getRandomPokemon";
 
 export default async function page() {
 
-    const publicaciones = await getRandomPokemons(3);
+    const publicaciones = await getRandomPokemons(4);
 
     return (
         <Tendencias publicaciones={publicaciones} />
