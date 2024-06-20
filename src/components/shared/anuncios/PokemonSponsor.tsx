@@ -6,7 +6,7 @@ const PokemonSponsor = () => {
         <div className='bg-cyan-700 py-8 flex justify-center items-center rounded-lg'>
             <Image
                 alt='sponsor'
-                src={"pokemon-tcg.svg"}
+                src={"/pokemon-tcg.svg"}
                 width={300}
                 height={200}
                 className='w-auto h-auto'
