@@ -1,8 +1,10 @@
+import { capitalize } from './../../data/generadores/utils';
 import { Pokemon } from "../pokemon/Pokemon";
 import { VariantePokemon } from "../pokemon/VariantePokemon";
 import { iArticulo } from "./iArticulo";
 import getId from "app/data/uuid";
 import { CalculadoraPrecioPokemon } from "../pokemon/CalculadoraPrecioPokemon";
+import { Tag } from '../pokemon/Tags';
 
 export class PokemonArticulo implements iArticulo {
 
@@ -21,7 +23,7 @@ export class PokemonArticulo implements iArticulo {
     }
 
     descripcion(): string {
-        return `${this.pokemon.nombre} lvl ${this.nivel} ${this.isShiny ? "shiny" : ""} ${this.variante.getDescription()}`;
+        return `${capitalize(this.pokemon.nombre)} lvl ${this.nivel} ${this.isShiny ? "shiny" : ""} ${this.variante.getDescription()}`;
     }
 
     defaultSprite(): string {
@@ -39,5 +41,13 @@ export class PokemonArticulo implements iArticulo {
 
     getImagenes() {
         return this.pokemon.imagenes(this.isShiny);
+    }
+
+    getGameDescription() {
+        return this.pokemon.getGameDescription();
+    }
+
+    getTags(): string[] {
+        return this.pokemon.tags;
     }
 }
