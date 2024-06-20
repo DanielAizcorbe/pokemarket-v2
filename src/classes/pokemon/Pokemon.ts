@@ -1,6 +1,8 @@
 import { getPokemonById } from "app/services/pokeapi";
 import { minimoNivelExistencia } from "app/services/pokemon/evolucionados/ids-filtrados/idsFiltradosPorIds";
 import { getMovimientos, getPokedexDescription } from "./utils";
+import { getTypos } from "./Tags";
+import { Atributos } from "app/services/typos";
 
 export class Pokemon {
     id: string;
@@ -11,7 +13,8 @@ export class Pokemon {
     spriteFrontShiny: string;
     minLevelExistencia: number;
     movimientosQueAprende: string[];
-    pokedexDescripcion: string;
+    gameDescription: string;
+    tags: Atributos[]
 
     constructor(id: string,
         nombre: string,
@@ -21,7 +24,8 @@ export class Pokemon {
         spriteFrontShiny: string,
         minLevelExistencia: number,
         movimientosQueAprende: string[],
-        pokedexDescripcion: string
+        gameDescription: string,
+        tags: Atributos[]
     ) {
         this.id = id;
         this.nombre = nombre;
@@ -31,7 +35,8 @@ export class Pokemon {
         this.spriteFrontShiny = spriteFrontShiny;
         this.minLevelExistencia = minLevelExistencia;
         this.movimientosQueAprende = movimientosQueAprende;
-        this.pokedexDescripcion = pokedexDescripcion;
+        this.gameDescription = gameDescription;
+        this.tags = tags;
     }
 
     getImage(shiny: boolean): string {
@@ -44,6 +49,9 @@ export class Pokemon {
         return shiny ? imagenesShiny : imagenesDefault;
     }
 
+    getGameDescription() {
+        return this.gameDescription;
+    }
 }
 
 export async function pokemonFromId(id: number): Promise<Pokemon> {
@@ -51,8 +59,10 @@ export async function pokemonFromId(id: number): Promise<Pokemon> {
     const pokemonData = await getPokemonById(id);
     const minimoNivelposible = await minimoNivelExistencia(id);
     const movimientosQueAprende = getMovimientos(pokemonData);
-    const pokedexDescription = await getPokedexDescription(pokemonData);
-
+    const gameDescription = await getPokedexDescription(pokemonData);
+    const types = getTypos(pokemonData);
+    //console.log(types);
+    
     const pokemon = new Pokemon(
         pokemonData.id,
         pokemonData.name,
@@ -62,7 +72,9 @@ export async function pokemonFromId(id: number): Promise<Pokemon> {
         pokemonData.sprites.front_shiny,
         minimoNivelposible,
         movimientosQueAprende,
-        pokedexDescription
+        gameDescription,
+        types
     )
     return pokemon;
 }
+
