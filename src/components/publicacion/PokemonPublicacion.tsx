@@ -1,18 +1,15 @@
 import { Publicacion } from "app/classes/publicacion/Publicacion";
-import { publiPrueba } from "./publi-prueba";
 import { PublicacionImage } from "./PublicacionImage";
 import PublicacionDetalle from "./PublicacionDetalles";
 import PublicacionCompra from "./compra/PublicacionCompra";
 
 interface Props {
-    publicacion?: Publicacion
+    publicacion: Publicacion
 }
 
 export async function PokemonPublicacion(props: Props) {
 
-    const publi = await publiPrueba();
-
-    const publicacion = props.publicacion || publi
+    const publicacion = props.publicacion
     const articulo = publicacion.getArticulo();
 
     return (
@@ -24,6 +21,9 @@ export async function PokemonPublicacion(props: Props) {
                 <PublicacionDetalle 
                     articulo={articulo}
                     descripcion={publicacion.descripcion()}
+                    descuento={publicacion.descuento}
+                    precioDescuento={publicacion.precioDescuento}
+                    precioOriginal={publicacion.getPrecioOriginal()}
                 />
                 <PublicacionCompra />
             </div>

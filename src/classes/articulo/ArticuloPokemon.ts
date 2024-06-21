@@ -1,20 +1,17 @@
 import { capitalize } from './../../data/generadores/utils';
 import { Pokemon } from "../pokemon/Pokemon";
 import { VariantePokemon } from "../pokemon/VariantePokemon";
-import { iArticulo } from "./iArticulo";
-import getId from "app/data/uuid";
 import { CalculadoraPrecioPokemon } from "../pokemon/CalculadoraPrecioPokemon";
+import { Atributos } from 'app/services/typos';
 
-export class PokemonArticulo implements iArticulo {
+export class ArticuloPokemon {
 
-    private id: string;
     private pokemon: Pokemon;
     private isShiny: boolean;
     private variante: VariantePokemon;
     private nivel: number
 
     constructor(pokemon: Pokemon, variante: VariantePokemon, nivel: number, isShiny: boolean) {
-        this.id = getId();
         this.pokemon = pokemon;
         this.isShiny = isShiny;
         this.variante = variante;
@@ -35,7 +32,7 @@ export class PokemonArticulo implements iArticulo {
     }
 
     getId(): string {
-        return this.id;
+        return this.pokemon.id;
     }
 
     getImagenes() {
@@ -46,7 +43,19 @@ export class PokemonArticulo implements iArticulo {
         return this.pokemon.getGameDescription();
     }
 
-    getTags(): string[] {
+    getTags(): Atributos[] {
         return this.pokemon.tags;
+    }
+
+    shiny() {
+        return this.isShiny
+    }
+
+    getNivel() {
+        return this.nivel;
+    }
+
+    getVariante() {
+        return this.variante;
     }
 }

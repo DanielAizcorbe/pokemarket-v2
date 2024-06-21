@@ -3,7 +3,7 @@ import { ArtPokemonBuilder } from "../articulo/builders/ArtPokemonBuilder";
 import { Pokemon } from "../pokemon/Pokemon";
 import { VariantePokemon } from "../pokemon/VariantePokemon";
 import { PublicacionBuilder } from "./PublicacionBuilder";
-import { iArticulo } from "../articulo/iArticulo";
+import { ArticuloPokemon } from "../articulo/ArticuloPokemon";
 
 interface Config {
     allShiny?: boolean,
@@ -32,12 +32,12 @@ function generarArticulo(pokemon: Pokemon, config: Config) {
     return artBuilder.build();
 }
 
-export function generarPublicaciones(articulos: Array<iArticulo>, allDescuento?: boolean) {
+export function generarPublicaciones(articulos: Array<ArticuloPokemon>, allDescuento?: boolean) {
     const publicaciones = articulos.map(a => generarPublicacion(a, allDescuento));
     return publicaciones;
 }
 
-function generarPublicacion(articulo: iArticulo, descuento?: boolean) {
+function generarPublicacion(articulo: ArticuloPokemon, descuento?: boolean) {
     const publiBuilder = new PublicacionBuilder(articulo);
     if (descuento) {
         publiBuilder.setDescuento(getDescuento(descuento))

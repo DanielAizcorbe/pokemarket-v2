@@ -1,8 +1,7 @@
 import { Pokemon } from "app/classes/pokemon/Pokemon";
 import { VariantePokemon, randomVariante } from "app/classes/pokemon/VariantePokemon";
 import { getRandomLevel } from "app/data/generadores/utils";
-import { PokemonArticulo } from "../ArticuloPokemon";
-import { iArticulo } from "../iArticulo";
+import { ArticuloPokemon } from "../ArticuloPokemon";
 
 export class ArtPokemonBuilder {
 
@@ -30,9 +29,9 @@ export class ArtPokemonBuilder {
         this.variante = variante;
     }
 
-    build(): iArticulo {
+    build(): ArticuloPokemon {
 
-        const articulo = new PokemonArticulo(
+        const articulo = new ArticuloPokemon(
             this.pokemon,
             this.variante,
             this.nivel,

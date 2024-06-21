@@ -1,13 +1,13 @@
-import { iArticulo } from "app/classes/articulo/iArticulo";
+import { ArticuloPokemon } from "app/classes/articulo/ArticuloPokemon";
 import { Publicacion } from "app/classes/publicacion/Publicacion";
 
 export class PublicacionBuilder {
 
-    private articulo: iArticulo;
+    private articulo: ArticuloPokemon;
     private descuento: number;
     private cantidad: number;
 
-    constructor(articulo: iArticulo){
+    constructor(articulo: ArticuloPokemon){
         this.articulo = articulo;
         this.descuento = 0;
         this.cantidad = 1;
@@ -28,9 +28,10 @@ export class PublicacionBuilder {
         }
     }
     
-    build(): Publicacion {
-        const precio = this.articulo.precioEstimado();
+    build(precioOriginal?: number): Publicacion {
+        const precio = precioOriginal || this.articulo.precioEstimado();
         const publicacion = new Publicacion(this.articulo, this.cantidad, precio, this.descuento);
         return publicacion;
     }
+
 }

@@ -30,3 +30,9 @@ export const variantes = {
 export const randomVariante = () => {
     return getOneOf(Object.values(variantes));
 }
+
+export function getClave(variante: VariantePokemon) {
+    const entradas = Object.entries(variantes);
+    const entradaCoincidente = entradas.find(([_, valor]) => valor === variante);
+    return entradaCoincidente? entradaCoincidente[0] : "";
+}

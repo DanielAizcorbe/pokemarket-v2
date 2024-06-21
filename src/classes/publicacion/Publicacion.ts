@@ -1,16 +1,16 @@
+import { ArticuloPokemon } from 'app/classes/articulo/ArticuloPokemon';
 import { getPrecioDescuento } from "app/data/generadores/utils";
-import { iArticulo } from "../articulo/iArticulo";
 import getId from "app/data/uuid";
 
 export class Publicacion {
     id: string;
-    articulo: iArticulo;
+    articulo: ArticuloPokemon;
     cantidad: number;
     descuento: number;
     precioOriginal: number;
     precioDescuento: number;
 
-    constructor(articulo: iArticulo, cantidad: number, precioOriginal: number, descuento: number) {
+    constructor(articulo: ArticuloPokemon, cantidad: number, precioOriginal: number, descuento: number) {
         this.id = getId();
         this.articulo = articulo;
         this.cantidad = cantidad;
@@ -35,8 +35,7 @@ export class Publicacion {
         return this.precioOriginal;
     }
 
-    getArticulo(): iArticulo {
+    getArticulo(): ArticuloPokemon {
         return this.articulo;
     }
-
 }
