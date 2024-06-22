@@ -16,15 +16,14 @@ export default function OpcionFiltroType(props) {
     }
 
     const query = queryBuilder.build();
-    
+
     return (
-        <Link href={{
-            pathname: props.pathName,
-            query: query
-        }}
-            style={{
-                color: estaSeleccionado? "red" : ""
+        <Link
+            href={{
+                pathname: props.pathName,
+                query: query
             }}
+            className={`text-sm ${estaSeleccionado? "text-cyan-500" : ""}`}
         >
             {props.atributo.nombre}
         </Link>)

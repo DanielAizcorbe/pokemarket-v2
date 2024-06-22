@@ -2,12 +2,12 @@ import { Card } from "app/components/card/Card";
 import Filtros from "app/components/shared/filtros/Filtros";
 import getId from "app/data/uuid";
 import { Filtros as pkFiltros, getFilteredPokemon } from "app/services/pokemon/getByFiltros";
+import Link from "next/link";
 
 export default async function page(props) {
 
     const primerAtributo = props.searchParams.atributo1;
     const segundoAtributo = props.searchParams.atributo2;
-    //console.log(primerAtributo,segundoAtributo);
 
     const filtros: pkFiltros = {
         atributo1: primerAtributo,
