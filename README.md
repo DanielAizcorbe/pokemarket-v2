@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <a href="">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
+    height="128"
+    />
+    <h1 align="center">PokeMarket</h1>
+  </a>
+</p>
 
-## Getting Started
+¡Atrápalos a todos!, pero de momento solo a los 151 originales
 
-First, run the development server:
+<hr/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Sobre el proyecto
+PokeMarket es mi primer aplicación hecha con [NextJS](https://nextjs.org/), para compra de artículos de pokemon.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Esta versión **no posee una base de datos**, ya que me centro más en las funcionalidades del framework y en las distintas peticiones a [Pokeapi](https://pokeapi.co/).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![pokeapi](https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<hr/>
 
-## Learn More
+### Funcionalidades
+* Los 151 pokemon originales disponibles para la compra
+* Filtros por atributos
+* ¡Descuentos!, entre el 10 y 20 por ciento
+* Disponibles las formas shinys
 
-To learn more about Next.js, take a look at the following resources:
+<hr/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Próximos pasos
+* Filtro por niveles (minLevel - maxLevel)
+* Filtros para pokemon shinys
+* Filtros para publicaciones con descuento
+* Mejoras en la UI:
+    - pantallas de carga
+    - pagina responsive para mobile
+    - mejora del comportamiento de los componentes en *hover*
+* Pantalla de compra
+* Funcionalidad de la barra de búsqueda, para generar publicaciones más específicas
+* Metadata personalizada para cada página
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<hr/>
 
-## Deploy on Vercel
+### Tecnologías
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este proyecto está creado con:
+* React 18
+* Typescript
+* TailwindCSS 3.4.4
+* NextJS 14.2.3
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<hr />
+
