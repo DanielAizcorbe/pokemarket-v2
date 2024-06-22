@@ -9,6 +9,6 @@ export interface Tag {
 }
 
 export function getTypos(pokemonData: any): Atributos[] {
-    const typos = pokemonData.types.map(t => t.type.name);
+    const typos = pokemonData.types.map((t: any) => t.type.name);
     return typos;
 }
