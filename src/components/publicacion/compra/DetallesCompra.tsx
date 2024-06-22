@@ -2,7 +2,7 @@ import { FaRedo } from "react-icons/fa";
 import { FaShieldAlt } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
 
-export default function DetallesCompra(props) {
+export default function DetallesCompra() {
 
     return (
         <div className="p-4 flex flex-col justify-start items-start gap-3">
