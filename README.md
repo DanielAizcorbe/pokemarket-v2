@@ -20,6 +20,12 @@ Esta versión **no posee una base de datos**, ya que me centro más en las funci
 
 <hr/>
 
+### Live Demo
+
+[PokeMarket - Deploy en Vercel](https://pokemarket-v2-danielaizcorbes-projects.vercel.app/categoria/pokemons)
+
+<hr/>
+
 ### Funcionalidades
 * Los 151 pokemon originales disponibles para la compra
 * Filtros por atributos
