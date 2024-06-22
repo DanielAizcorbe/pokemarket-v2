@@ -19,7 +19,7 @@ export class VariantePokemon {
     }
 }
 
-export const variantes = {
+export const variantes: { [key: string]: any } = {
     competitivo: new VariantePokemon("para competitivo", 1.4),
     companiero: new VariantePokemon("como compañero", 1),
     crianza: new VariantePokemon("para crianza", 1.5),
