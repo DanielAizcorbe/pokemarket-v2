@@ -1,4 +1,4 @@
-import { getDescuento, getRandomNumber } from "app/data/generadores/utils";
+import { getDescuento, getRandomBoolean, getRandomNumber } from "app/data/generadores/utils";
 import { ArtPokemonBuilder } from "../articulo/builders/ArtPokemonBuilder";
 import { Pokemon } from "../pokemon/Pokemon";
 import { VariantePokemon } from "../pokemon/VariantePokemon";
@@ -18,7 +18,7 @@ export function generarArticulos(pokemons: Array<Pokemon>, config: Config) {
 }
 
 function generarArticulo(pokemon: Pokemon, config: Config) {
-    
+
     const artBuilder = new ArtPokemonBuilder(pokemon);
     const minLevel = Math.max(pokemon.minLevelExistencia, config.minLevel);
     const nivel = getRandomNumber(minLevel, config.maxLevel);
@@ -39,8 +39,6 @@ export function generarPublicaciones(articulos: Array<ArticuloPokemon>, allDescu
 
 function generarPublicacion(articulo: ArticuloPokemon, descuento?: boolean) {
     const publiBuilder = new PublicacionBuilder(articulo);
-    if (descuento) {
-        publiBuilder.setDescuento(getDescuento(descuento))
-    }
+    publiBuilder.setDescuento(getDescuento(descuento || getRandomBoolean(20)))
     return publiBuilder.build();
 }

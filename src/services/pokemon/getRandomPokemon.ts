@@ -1,3 +1,4 @@
+import { getRandomBoolean } from "app/data/generadores/utils";
 import { Filtros, getFilteredPokemon } from "./getByFiltros";
 
 interface Levels {
@@ -12,7 +13,7 @@ export async function getRandomPokemons(size: number, levels?: Levels, allDiscou
         minLevel: levels?.minLevel || 5,
         lenght:size,
         evolucionCompleta: evoCompleta,
-        descuento: allDiscount
+        descuento: allDiscount || getRandomBoolean(20)
     }
 
     const pokemons = await getFilteredPokemon(filtros);
