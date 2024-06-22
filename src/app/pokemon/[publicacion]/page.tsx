@@ -5,9 +5,8 @@ import { PokemonPublicacion } from "app/components/publicacion/PokemonPublicacio
 import PokemonSponsor from "app/components/shared/anuncios/PokemonSponsor";
 import getId from "app/data/uuid";
 import { Filtros, getFilteredPokemon } from "app/services/pokemon/getByFiltros";
-import { Atributos } from "app/services/typos";
 
-export default async function page(props) {
+export default async function page(props: any) {
 
     const params = props.params;
 
