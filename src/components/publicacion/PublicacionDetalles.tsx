@@ -24,7 +24,7 @@ export default function PublicacionDetalle(props: Props) {
                     {props.descripcion}
                 </h1>
                 <div className="flex flex-row w-full p-1">
-                    {props.articulo.getTags().map(t => <Tag data={t} key={getId()} />)}
+                    {props.articulo.getTags().map(t => <TagAtributo data={t} key={getId()} />)}
                 </div>
             </div>
             <p className="text-lg italic h-1/3">
