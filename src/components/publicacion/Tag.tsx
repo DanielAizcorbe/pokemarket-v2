@@ -5,6 +5,12 @@ interface Props {
     data: Atributos
 }
 
+interface AtributoTag {
+    bgColor: string,
+    textColor: string,
+    borderColor: string,
+    nombre: string
+}
 export default function Tag(props: Props) {
 
     const tag = getTag(props.data);
@@ -23,7 +29,7 @@ export function getTag(tag: Atributos) {
 
     const tagGenerator = (bgColor: string, nombre: string) => {
 
-        const newTag: Tag = {
+        const newTag = {
             bgColor: bgColor,
             borderColor: "border-slate-100",
             textColor: "text-slate-100",
