@@ -1,11 +1,12 @@
 "use client"
-import getId from "app/data/uuid";
-import { filtros } from "./type-filtro";
-import OpcionFiltroType from "./OpcionFiltroType";
 import { usePathname } from "next/navigation";
 import { FiltrosAtributo } from "./FiltrosAtributo";
 
-export default function Filtros(props) {
+interface Props {
+    seleccionados: any
+}
+
+export default function Filtros(props: Props) {
 
     const seleccionados = props.seleccionados;
     const pathName = usePathname();

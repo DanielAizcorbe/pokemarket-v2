@@ -1,5 +1,5 @@
 import { PublicacionBuilder } from 'app/classes/publicacion/PublicacionBuilder';
-import { getClave, variantes } from '../pokemon/VariantePokemon';
+import { VariantePokemon, getClave, variantes } from '../pokemon/VariantePokemon';
 import { Publicacion } from './Publicacion';
 import { ArtPokemonBuilder } from '../articulo/builders/ArtPokemonBuilder';
 import { pokemonFromId } from '../pokemon/Pokemon';
@@ -41,7 +41,9 @@ export async function recuperarFromUrl(url: string) {
     if(valores.t === "s") {
         artBuilder.setShiny();
     }
-    artBuilder.setVariante(variantes[valores.v]);
+    const prop: string = valores.v;
+    const variante = variantes[prop]; 
+    artBuilder.setVariante(variante);
     const articulo = artBuilder.build();
     
     const pBuilder = new PublicacionBuilder(articulo);

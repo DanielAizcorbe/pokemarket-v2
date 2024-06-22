@@ -8,7 +8,7 @@ const BarraBusqueda = () => {
 
     const [itemBuscado, setItemBuscado] = useState("");
 
-    const handleChange = (event) => {
+    const handleChange = (event: any) => {
         setItemBuscado(event.target.value);
     }
 

@@ -20,7 +20,6 @@ export default function Tag(props: Props) {
 
 
 export function getTag(tag: Atributos) {
-    //console.log(tag);
 
     const tagGenerator = (bgColor: string, nombre: string) => {
 
@@ -30,7 +29,6 @@ export function getTag(tag: Atributos) {
             textColor: "text-slate-100",
             nombre: nombre
         }
-        //console.log(newTag);
 
         return newTag;
     }
@@ -53,7 +51,6 @@ export function getTag(tag: Atributos) {
         case Atributos.TIERRA: return tagGenerator("bg-yellow-600", "Tierra");
         case Atributos.PSIQUICO: return tagGenerator("bg-pink-400", "Psíquico");
         case Atributos.FANTASMA: return tagGenerator("bg-purple-900", "Fantasma");
-        case Atributos.HADA: return tagGenerator("bg-pink-400", "Hada")
-        default: { };
+        default: return tagGenerator("bg-white", "");
     }
 }

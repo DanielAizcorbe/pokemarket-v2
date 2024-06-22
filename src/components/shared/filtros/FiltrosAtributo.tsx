@@ -1,7 +1,12 @@
 import OpcionFiltroType from "./OpcionFiltroType";
 import { filtros } from "./type-filtro";
 
-export function FiltrosAtributo(props) {
+interface Props {
+    pathName: string,
+    seleccionados: Array<string>
+}
+
+export function FiltrosAtributo(props: Props) {
 
     return (
         <div className="flex flex-col gap-2">

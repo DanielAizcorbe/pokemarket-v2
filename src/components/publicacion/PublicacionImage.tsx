@@ -2,7 +2,12 @@
 import { useState } from "react";
 import { FaUndo } from "react-icons/fa";
 
-export function PublicacionImage(props) {
+interface Props {
+    images: Array<string>,
+    
+}
+
+export function PublicacionImage(props: Props) {
     const [showFront, setShowFront] = useState(true);
     const image = props.images[showFront ? 0 : 1];
 

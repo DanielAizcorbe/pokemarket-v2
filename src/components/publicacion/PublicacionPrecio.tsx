@@ -1,4 +1,10 @@
-export default function PublicacionPrecio(props) {
+interface Props {
+    descuento: number,
+    precioOriginal: number,
+    precioDescuento: number,
+}
+
+export default function PublicacionPrecio(props: Props) {
 
     const tieneDescuento = props.descuento > 0;
 

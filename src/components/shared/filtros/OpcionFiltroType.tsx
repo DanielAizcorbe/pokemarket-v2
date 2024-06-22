@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { QueryBuilder } from "./QueryBuilder";
+interface Props {
+    seleccionados: Array<string>,
+    atributo: any,
+    pathName: string
+}
 
-export default function OpcionFiltroType(props) {
+export default function OpcionFiltroType(props: Props) {
 
     const seleccionados = props.seleccionados;
     const atributo = props.atributo.type;
