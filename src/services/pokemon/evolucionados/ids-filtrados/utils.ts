@@ -16,12 +16,12 @@ export function primerEtapa(chainData: any) {
 export function allSiguientesEtapas(chainData: any, anterior: string) {
     const posiblesEvoluciones = chainData.evolves_to;
 
-    const siguientesEtapas = posiblesEvoluciones.map(s => etapa(s, anterior));
+    const siguientesEtapas = posiblesEvoluciones.map((s: any) => etapa(s, anterior));
     return siguientesEtapas;
 }
 
 export function allTercerasEtapas(chainData: any) {
-    const tercerasEtapas = chainData.evolves_to.flatMap(e => allSiguientesEtapas(e, e.species.name))
+    const tercerasEtapas = chainData.evolves_to.flatMap((e: any) => allSiguientesEtapas(e, e.species.name))
     return tercerasEtapas;
 }
 
@@ -38,9 +38,9 @@ function etapa(data: any, anterior: string) {
 }
 
 function minLevel(detallesEvolucion: any): number {
-    const detallesDeNiveles = detallesEvolucion.filter(e => e.min_level !== null);
+    const detallesDeNiveles = detallesEvolucion.filter((e: any) => e.min_level !== null);
 
-    const posiblesNiveles: number[] = detallesDeNiveles.map(e => e.min_level);
+    const posiblesNiveles: number[] = detallesDeNiveles.map((e: any) => e.min_level);
 
     const menorNivelPosible = Math.min(...posiblesNiveles) || 0;
 
