@@ -1,6 +1,6 @@
 import { ArticuloPokemon } from "app/classes/articulo/ArticuloPokemon";
 import getId from "app/data/uuid";
-import Tag from "./Tag";
+import TagAtributo from "./TagAtributo";
 import PublicacionPrecio from "./PublicacionPrecio";
 
 interface Props {
