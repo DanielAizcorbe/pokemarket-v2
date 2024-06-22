@@ -3,7 +3,7 @@ import { getSpecie } from "app/services/pokeapi";
 export function getMovimientos(pokemonData: any): string[] {
 
     const movimientos = pokemonData.moves;
-    const movimientosDeLaVersionActual = movimientos.filter(m => esDeLaVersionActual(m));
+    const movimientosDeLaVersionActual = movimientos.filter((m: any) => esDeLaVersionActual(m));
     return movimientosDeLaVersionActual.map((m: any) => m.move.name);
 
 }
