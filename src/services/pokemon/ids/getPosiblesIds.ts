@@ -8,7 +8,7 @@ import { Atributos, Categoria, MAX_ID_POKEMON } from "app/services/typos";
     
     const pokemonUrls = typeData
         .pokemon
-        .map(p => p.pokemon.url);
+        .map((p: any) => p.pokemon.url);
 
     const ids = pokemonUrls
         .map((url: string) => getIdFromUrl(url))
