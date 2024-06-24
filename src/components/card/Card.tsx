@@ -1,6 +1,5 @@
 import { Publicacion } from "app/classes/publicacion/Publicacion"
 import CardDescription from "./utils/CardDescription"
-import CardImage from "./utils/CardImage"
 import CardPrecio from "./utils/CardPrecio"
 import { getSizeCard } from "./utils/sizeCard"
 import { distributionType, sizeType } from "./utils/sizes"
@@ -28,7 +27,7 @@ export const Card = (props: CardProps) => {
         <Link href={`/pokemon/${url}`}>
             <div className={`${size.heightContainer} ${size.widthContainer} ${size.fontSize} p-2 shadow-md rounded-md flex ${isVertical ? "flex-col" : ""}`}>
                 <div className={containerSize}>
-                    <CardImage
+                    <CardImageV2
                         alt={publicacion.getArticulo().descripcion()}
                         src={publicacion.getArticulo().defaultSprite()}
                         zoom={size.zoom}
