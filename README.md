@@ -22,7 +22,7 @@ Esta versión **no posee una base de datos**, ya que me centro más en las funci
 
 ### Live Demo
 
-[PokeMarket - Deploy en Vercel](https://pokemarket-v2-danielaizcorbes-projects.vercel.app/categoria/pokemons)
+[PokeMarket - Deploy en Vercel](https://pokemarket-v2-danielaizcorbes-projects.vercel.app/)
 
 <hr/>
 
