@@ -1,7 +1,7 @@
 import { MAX_ID_POKEMON } from "app/services/typos";
 
-export function getInterseccion<T>(list1: Array<T>, list2: Array<T>): Array<T> {
-    const interseccion = list1.filter((e: T) => list2.includes(e));
+export function getInterseccion<T>(list1: T[], list2: T[]): T[] {
+    const interseccion = list1.filter(e => list2.includes(e));
     return interseccion;
 }
 

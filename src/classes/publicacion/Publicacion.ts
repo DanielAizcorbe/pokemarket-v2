@@ -3,12 +3,12 @@ import { getPrecioDescuento } from "app/data/generadores/utils";
 import getId from "app/data/uuid";
 
 export class Publicacion {
-    id: string;
-    articulo: ArticuloPokemon;
-    cantidad: number;
-    descuento: number;
-    precioOriginal: number;
-    precioDescuento: number;
+    private id: string;
+    private articulo: ArticuloPokemon;
+    private cantidad: number;
+    private descuento: number;
+    private precioOriginal: number;
+    private precioDescuento: number;
 
     constructor(articulo: ArticuloPokemon, cantidad: number, precioOriginal: number, descuento: number) {
         this.id = getId();
@@ -37,5 +37,9 @@ export class Publicacion {
 
     getArticulo(): ArticuloPokemon {
         return this.articulo;
+    }
+
+    getDescuento(): number {
+        return this.descuento
     }
 }

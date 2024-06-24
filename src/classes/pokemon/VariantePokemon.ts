@@ -19,7 +19,7 @@ export class VariantePokemon {
     }
 }
 
-export const variantes: { [key: string]: any } = {
+export const variantes: { [key: string]: VariantePokemon } = {
     competitivo: new VariantePokemon("para competitivo", 1.4),
     companiero: new VariantePokemon("como compañero", 1),
     crianza: new VariantePokemon("para crianza", 1.5),
@@ -27,11 +27,11 @@ export const variantes: { [key: string]: any } = {
     ivsPerfectos: new VariantePokemon("con IVs perfectos", 1.6),
 }
 
-export const randomVariante = () => {
+export const randomVariante = (): VariantePokemon => {
     return getOneOf(Object.values(variantes));
 }
 
-export function getClave(variante: VariantePokemon) {
+export function getClave(variante: VariantePokemon): string {
     const entradas = Object.entries(variantes);
     const entradaCoincidente = entradas.find(([_, valor]) => valor === variante);
     return entradaCoincidente? entradaCoincidente[0] : "";

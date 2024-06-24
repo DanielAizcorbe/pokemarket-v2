@@ -1,10 +1,12 @@
+import { ChainData, EvoDetail } from "./type";
+
 export interface Etapa {
     pokemon: string,
     anterior: string,
     minLevel: number,
 }
 
-export function primerEtapa(chainData: any) {
+export function primerEtapa(chainData: ChainData) {
     const pokemon: Etapa = {
         anterior: "",
         pokemon: chainData.species.name,
@@ -13,19 +15,20 @@ export function primerEtapa(chainData: any) {
     return pokemon;
 }
 
-export function allSiguientesEtapas(chainData: any, anterior: string) {
+export function allSiguientesEtapas(chainData: ChainData, anterior: string) {
     const posiblesEvoluciones = chainData.evolves_to;
 
-    const siguientesEtapas = posiblesEvoluciones.map((s: any) => etapa(s, anterior));
+    const siguientesEtapas = posiblesEvoluciones.map(s => etapa(s, anterior));
     return siguientesEtapas;
 }
 
-export function allTercerasEtapas(chainData: any) {
-    const tercerasEtapas = chainData.evolves_to.flatMap((e: any) => allSiguientesEtapas(e, e.species.name))
+export function allTercerasEtapas(chainData: ChainData) {
+    const tercerasEtapas = chainData.evolves_to
+        .flatMap(e => allSiguientesEtapas(e, e.species.name))
     return tercerasEtapas;
 }
 
-function etapa(data: any, anterior: string) {
+function etapa(data: ChainData, anterior: string) {
 
     const detallesEvolucion = data.evolution_details;
 
@@ -37,8 +40,8 @@ function etapa(data: any, anterior: string) {
     return etapa;
 }
 
-function minLevel(detallesEvolucion: any): number {
-    const detallesDeNiveles = detallesEvolucion.filter((e: any) => e.min_level !== null);
+function minLevel(detallesEvolucion: EvoDetail[]): number {
+    const detallesDeNiveles = detallesEvolucion.filter(e => e.min_level !== null);
 
     const posiblesNiveles: number[] = detallesDeNiveles.map((e: any) => e.min_level);
 

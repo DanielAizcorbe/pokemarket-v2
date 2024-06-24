@@ -1,8 +1,7 @@
-import { Tag } from "app/classes/pokemon/Tags";
-import { Atributos } from "app/services/typos";
+import { Atributo } from "app/services/typos";
 
 interface Props {
-    data: Atributos
+    data: Atributo
 }
 
 interface AtributoTag {
@@ -11,6 +10,7 @@ interface AtributoTag {
     borderColor: string,
     nombre: string
 }
+
 export default function TagAtributo(props: Props) {
 
     const tag = getTag(props.data);
@@ -25,7 +25,7 @@ export default function TagAtributo(props: Props) {
 }
 
 
-export function getTag(tag: Atributos) {
+export function getTag(tag: Atributo) {
 
     const tagGenerator = (bgColor: string, nombre: string) => {
 
@@ -40,23 +40,23 @@ export function getTag(tag: Atributos) {
     }
 
     switch (tag) {
-        case Atributos.VOLADOR: return tagGenerator("bg-cyan-500", "Volador");
-        case Atributos.PLANTA: return tagGenerator("bg-green-500", "Planta");
-        case Atributos.BICHO: return tagGenerator("bg-lime-400", "Bicho");
-        case Atributos.FUEGO: return tagGenerator("bg-red-500", "Fuego");
-        case Atributos.HIELO: return tagGenerator("bg-cyan-300", "Hielo");
-        case Atributos.AGUA: return tagGenerator("bg-blue-500", "Agua");
-        case Atributos.LUCHA: return tagGenerator("bg-red-700", "Lucha");
-        case Atributos.SINIESTRO: return tagGenerator("bg-neutral-800", "Siniestro");
-        case Atributos.VENENO: return tagGenerator("bg-fuchsia-900", "Veneno");
-        case Atributos.DRAGON: return tagGenerator("bg-violet-500", "Dragón");
-        case Atributos.ACERO: return tagGenerator("bg-neutral-400", "Acero");
-        case Atributos.ELECTRICO: return tagGenerator("bg-yellow-400", "Eléctrico");
-        case Atributos.NORMAL: return tagGenerator("bg-stone-400", "Normal");
-        case Atributos.ROCA: return tagGenerator("bg-amber-700", "Roca");
-        case Atributos.TIERRA: return tagGenerator("bg-yellow-600", "Tierra");
-        case Atributos.PSIQUICO: return tagGenerator("bg-pink-400", "Psíquico");
-        case Atributos.FANTASMA: return tagGenerator("bg-purple-900", "Fantasma");
-        default: return tagGenerator("bg-white", "");
+        case Atributo.VOLADOR: return tagGenerator("bg-cyan-500", "Volador");
+        case Atributo.PLANTA: return tagGenerator("bg-green-500", "Planta");
+        case Atributo.BICHO: return tagGenerator("bg-lime-400", "Bicho");
+        case Atributo.FUEGO: return tagGenerator("bg-red-500", "Fuego");
+        case Atributo.HIELO: return tagGenerator("bg-cyan-300", "Hielo");
+        case Atributo.AGUA: return tagGenerator("bg-blue-500", "Agua");
+        case Atributo.LUCHA: return tagGenerator("bg-red-700", "Lucha");
+        case Atributo.SINIESTRO: return tagGenerator("bg-neutral-800", "Siniestro");
+        case Atributo.VENENO: return tagGenerator("bg-fuchsia-900", "Veneno");
+        case Atributo.DRAGON: return tagGenerator("bg-violet-500", "Dragón");
+        case Atributo.ACERO: return tagGenerator("bg-neutral-400", "Acero");
+        case Atributo.ELECTRICO: return tagGenerator("bg-yellow-400", "Eléctrico");
+        case Atributo.NORMAL: return tagGenerator("bg-stone-400", "Normal");
+        case Atributo.ROCA: return tagGenerator("bg-amber-700", "Roca");
+        case Atributo.TIERRA: return tagGenerator("bg-yellow-600", "Tierra");
+        case Atributo.PSIQUICO: return tagGenerator("bg-pink-400", "Psíquico");
+        case Atributo.FANTASMA: return tagGenerator("bg-purple-900", "Fantasma");
+        default: return tagGenerator("bg-gray", "?");
     }
 }

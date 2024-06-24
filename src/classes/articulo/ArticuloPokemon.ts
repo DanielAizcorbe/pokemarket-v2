@@ -2,7 +2,7 @@ import { capitalize } from './../../data/generadores/utils';
 import { Pokemon } from "../pokemon/Pokemon";
 import { VariantePokemon } from "../pokemon/VariantePokemon";
 import { CalculadoraPrecioPokemon } from "../pokemon/CalculadoraPrecioPokemon";
-import { Atributos } from 'app/services/typos';
+import { Atributo } from 'app/services/typos';
 
 export class ArticuloPokemon {
 
@@ -19,7 +19,7 @@ export class ArticuloPokemon {
     }
 
     descripcion(): string {
-        return `${capitalize(this.pokemon.nombre)} lvl ${this.nivel} ${this.isShiny ? "shiny" : ""} ${this.variante.getDescription()}`;
+        return `${capitalize(this.pokemon.getNombre())} lvl ${this.nivel} ${this.isShiny ? "shiny" : ""} ${this.variante.getDescription()}`;
     }
 
     defaultSprite(): string {
@@ -31,10 +31,6 @@ export class ArticuloPokemon {
         return calculador.precio(this.nivel, this.variante, this.isShiny);
     }
 
-    getId(): string {
-        return this.pokemon.id;
-    }
-
     getImagenes() {
         return this.pokemon.imagenes(this.isShiny);
     }
@@ -43,8 +39,8 @@ export class ArticuloPokemon {
         return this.pokemon.getGameDescription();
     }
 
-    getTags(): Atributos[] {
-        return this.pokemon.tags;
+    getTags(): Atributo[] {
+        return this.pokemon.getAtributos();
     }
 
     shiny() {
@@ -57,5 +53,9 @@ export class ArticuloPokemon {
 
     getVariante() {
         return this.variante;
+    }
+
+    getPokemonId(): string {
+        return this.pokemon.getId();
     }
 }

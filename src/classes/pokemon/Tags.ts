@@ -1,14 +1,15 @@
-import { Atributos } from "app/services/typos";
+import { PokemonData } from "app/services/types/pokemon/pokemonData";
+import { Type } from "app/services/types/pokemon/utils";
+import { Atributo } from "app/services/typos";
 
-export interface Tag {
-    nombre: string,
-    textColor: string,
-    borderColor: string,
-    bgColor: string,
-
+function getAtributo(tipo: Type): Atributo {
+    const nombre = tipo.type.name
+    const valoresAtributos = Object.values(Atributo);
+    const atributoEncontrado = valoresAtributos.find(valor => valor === nombre);
+    return atributoEncontrado || Atributo.DESCONOCIDO;
 }
 
-export function getTypos(pokemonData: any): Atributos[] {
-    const typos = pokemonData.types.map((t: any) => t.type.name);
+export function getTypos(pokemonData: PokemonData): Atributo[] {
+    const typos = pokemonData.types.map(t => getAtributo(t));
     return typos;
 }

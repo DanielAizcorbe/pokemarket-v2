@@ -1,7 +1,8 @@
 import { getSpecie, rawFetch } from "app/services/pokeapi";
 import { Etapa, allSiguientesEtapas, allTercerasEtapas, primerEtapa } from "./utils";
+import { EvolutionChainData } from "./type";
 
-export async function filtrarPorNivel(ids: Array<number>, max: number): Promise<Array<number>> {
+export async function filtrarPorNivel(ids: Array<number>, max: number): Promise<number[]> {
     const result = [];
     const items = ids
     for (let index = 0; index < items.length; index++) {
@@ -18,9 +19,9 @@ async function puedeExistirAlNivel(pokemonId: number, maxLevel: number): Promise
     return minimoNivelPosible <= maxLevel;
 }
 
-export async function minimoNivelExistencia(pokemonId: number) {
+export async function minimoNivelExistencia(pokemonId: number): Promise<number> {
     const specie = await getSpecie(pokemonId.toString());
-    const evoChain = await rawFetch(specie.evolution_chain.url);
+    const evoChain: EvolutionChainData = await rawFetch(specie.evolution_chain.url);
     const cadenaEvolutiva = evoChain.chain;
     const pokemonBuscado = specie.name;
 

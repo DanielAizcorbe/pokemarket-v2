@@ -1,20 +1,15 @@
-import { getPokemonById } from "app/services/pokeapi";
-import { minimoNivelExistencia } from "app/services/pokemon/evolucionados/ids-filtrados/idsFiltradosPorIds";
-import { getMovimientos, getPokedexDescription } from "./utils";
-import { getTypos } from "./Tags";
-import { Atributos } from "app/services/typos";
+import { Atributo } from "app/services/typos";
 
 export class Pokemon {
-    id: string;
-    nombre: string;
-    spriteBackDefault: string;
-    spriteFrontDefault: string;
-    spriteBackShiny: string;
-    spriteFrontShiny: string;
-    minLevelExistencia: number;
-    movimientosQueAprende: string[];
-    gameDescription: string;
-    tags: Atributos[]
+    private id: string;
+    private nombre: string;
+    private spriteBackDefault: string;
+    private spriteFrontDefault: string;
+    private spriteBackShiny: string;
+    private spriteFrontShiny: string;
+    private minLevelExistencia: number;
+    private gameDescription: string;
+    private atributos: Atributo[]
 
     constructor(id: string,
         nombre: string,
@@ -23,9 +18,8 @@ export class Pokemon {
         spriteBackShiny: string,
         spriteFrontShiny: string,
         minLevelExistencia: number,
-        movimientosQueAprende: string[],
         gameDescription: string,
-        tags: Atributos[]
+        atributos: Atributo[]
     ) {
         this.id = id;
         this.nombre = nombre;
@@ -34,47 +28,40 @@ export class Pokemon {
         this.spriteFrontDefault = spriteFrontDefault;
         this.spriteFrontShiny = spriteFrontShiny;
         this.minLevelExistencia = minLevelExistencia;
-        this.movimientosQueAprende = movimientosQueAprende;
         this.gameDescription = gameDescription;
-        this.tags = tags;
+        this.atributos = atributos;
     }
 
     getImage(shiny: boolean): string {
         return shiny ? this.spriteFrontShiny : this.spriteFrontDefault;
     }
 
-    imagenes(shiny: boolean): Array<string> {
+    imagenes(shiny: boolean): string[] {
         const imagenesShiny = [this.spriteFrontShiny, this.spriteBackShiny];
         const imagenesDefault = [this.spriteFrontDefault, this.spriteBackDefault];
         return shiny ? imagenesShiny : imagenesDefault;
     }
 
-    getGameDescription() {
+    getGameDescription(): string {
         return this.gameDescription;
+    }
+
+    getNombre():string {
+        return this.nombre;
+    }
+
+    getAtributos(): Atributo[] {
+        return this.atributos;
+    }
+    
+    getMinLevel(): number {
+        return this.minLevelExistencia;
+    }
+
+    getId(): string {
+        return this.id;
     }
 }
 
-export async function pokemonFromId(id: number): Promise<Pokemon> {
 
-    const pokemonData = await getPokemonById(id);
-    const minimoNivelposible = await minimoNivelExistencia(id);
-    const movimientosQueAprende = getMovimientos(pokemonData);
-    const gameDescription = await getPokedexDescription(pokemonData);
-    const types = getTypos(pokemonData);
-    //console.log(types);
-    
-    const pokemon = new Pokemon(
-        pokemonData.id,
-        pokemonData.name,
-        pokemonData.sprites.back_default,
-        pokemonData.sprites.front_default,
-        pokemonData.sprites.back_shiny,
-        pokemonData.sprites.front_shiny,
-        minimoNivelposible,
-        movimientosQueAprende,
-        gameDescription,
-        types
-    )
-    return pokemon;
-}
 

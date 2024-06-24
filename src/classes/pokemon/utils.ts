@@ -1,22 +1,16 @@
 import { getSpecie } from "app/services/pokeapi";
+import { PokemonData } from "app/services/types/pokemon/pokemonData";
+import { FlavorTextData } from "app/services/types/specie/utils";
+import { VERSION_DATA } from "app/services/typos";
 
-export function getMovimientos(pokemonData: any): string[] {
-
-    const movimientos = pokemonData.moves;
-    const movimientosDeLaVersionActual = movimientos.filter((m: any) => esDeLaVersionActual(m));
-    return movimientosDeLaVersionActual.map((m: any) => m.move.name);
-
+function esDeLaVersionActual(descripcion: FlavorTextData): boolean {
+    return descripcion.version.name === VERSION_DATA;
 }
 
-function esDeLaVersionActual(movimiento: any): boolean {
-    const version = "omega-ruby";
-    return movimiento.version_group_details.some((m: any) => m.version_group.name === version);
-}
-
-export async function getPokedexDescription(pokemonData: any): Promise<string> {
+export async function getPokedexDescription(pokemonData: PokemonData): Promise<string> {
     const specie = await getSpecie(pokemonData.name);
     const descripciones = specie.flavor_text_entries;
-    const descripcionesEnEsp = descripciones.filter((d: any )=> d.language.name === "es" && d.version.name === "omega-ruby");
+    const descripcionesEnEsp = descripciones.filter(d=> esDeLaVersionActual(d));
     const descripcion = descripcionesEnEsp[0];
     return descripcion.flavor_text;
 }

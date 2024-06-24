@@ -1,4 +1,4 @@
-import { Atributos, MAX_ID_POKEMON } from "app/services/typos";
+import { Atributo, MAX_ID_POKEMON } from "app/services/typos";
 import { getPosiblesIdsDe } from "./getPosiblesIds";
 import { getInterseccion } from "./utils";
 
@@ -12,7 +12,7 @@ function allPokemonIds(): Array<number> {
  * @param atributo2 Atributo secundario del pokemon
  * @returns Promise<Array(string)>
  */
-export async function getPokemonIdsPorAtributos(atributo1?: Atributos, atributo2?: Atributos) {
+export async function getPokemonIdsPorAtributos(atributo1?: Atributo, atributo2?: Atributo) {
 
     if (!atributo1) {
         return allPokemonIds();

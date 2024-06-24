@@ -4,13 +4,13 @@ import { getPokemonIdsPorAtributos } from "./ids/getPokemonIds";
 import { idsPokemonEvolucionados } from "./evolucionados/idsPokemonEvolucionados";
 import { filtrarPorNivel } from "./evolucionados/ids-filtrados/idsFiltradosPorIds";
 import { generarPublicacionesPokemon } from "app/classes/publicacion/generarPublicaciones";
-import { pokemonFromId } from "app/classes/pokemon/Pokemon";
+import { pokemonFromId } from "app/classes/pokemon/pokemonFromId";
 import { getRandomsIds } from "./ids/getRandomsIds";
-import { Atributos } from "../typos";
+import { Atributo } from "../typos";
 
 export interface Filtros {
-    atributo1?: Atributos,
-    atributo2?: Atributos,
+    atributo1?: Atributo,
+    atributo2?: Atributo,
     variante?: VariantePokemon,
     descuento?: boolean,
     maxLevel: number,

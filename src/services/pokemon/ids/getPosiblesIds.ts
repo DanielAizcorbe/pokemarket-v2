@@ -1,18 +1,28 @@
 import { getFromPokeApi } from "app/services/pokeapi";
 import { getIdFromUrl } from "./utils";
-import { Atributos, Categoria, MAX_ID_POKEMON } from "app/services/typos";
+import { Atributo, Categoria, MAX_ID_POKEMON } from "app/services/typos";
+import { DefaultData } from "app/services/types/genericos";
 
- export async function getPosiblesIdsDe(atributo: Atributos): Promise<Array<number>> {
+interface TypeData {
+    pokemon: Pokemon[],
+}
 
-    const typeData = await getFromPokeApi(Categoria.TYPE_ENDPOINT, atributo);
-    
+interface Pokemon {
+    pokemon: DefaultData,
+    slot: number
+}
+
+export async function getPosiblesIdsDe(atributo: Atributo): Promise<number[]> {
+
+    const typeData: TypeData = await getFromPokeApi(Categoria.TYPE_ENDPOINT, atributo);
+
     const pokemonUrls = typeData
         .pokemon
-        .map((p: any) => p.pokemon.url);
+        .map(p => p.pokemon.url);
 
-    const ids = pokemonUrls
-        .map((url: string) => getIdFromUrl(url))
-        .filter((id: number) => id < MAX_ID_POKEMON);
+    const ids: number[] = pokemonUrls
+        .map(url => getIdFromUrl(url))
+        .filter(id => id < MAX_ID_POKEMON);
 
     return ids;
 }

@@ -9,7 +9,7 @@ export enum Categoria {
     SPECIES_ENDPOINT = "pokemon-species/",
 }
 
-export enum Atributos {
+export enum Atributo {
     AGUA = "water",
     FUEGO = "fire",
     TIERRA = "ground",
@@ -27,9 +27,10 @@ export enum Atributos {
     PSIQUICO = "psychic",
     DRAGON = "dragon",
     SINIESTRO = "dark",
+    DESCONOCIDO = "unknown"
 }
 
-export const VERSION_DATA = "emerald"
+export const VERSION_DATA = "omega-ruby"
 
 export const LENGUAJE_DATA = "es"
 

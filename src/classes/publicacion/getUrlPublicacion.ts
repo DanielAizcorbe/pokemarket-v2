@@ -1,15 +1,15 @@
 import { PublicacionBuilder } from 'app/classes/publicacion/PublicacionBuilder';
-import { VariantePokemon, getClave, variantes } from '../pokemon/VariantePokemon';
+import { getClave, variantes } from '../pokemon/VariantePokemon';
 import { Publicacion } from './Publicacion';
 import { ArtPokemonBuilder } from '../articulo/builders/ArtPokemonBuilder';
-import { pokemonFromId } from '../pokemon/Pokemon';
+import { pokemonFromId } from '../pokemon/pokemonFromId';
 
-export function getUrlFrom(publicacion: Publicacion) {
+export function getUrlFrom(publicacion: Publicacion): string {
 
-    const pokemonId = publicacion.getArticulo().getId();
+    const pokemonId = publicacion.getArticulo().getPokemonId();
     const isShiny = publicacion.getArticulo().shiny() ? "s" : "d"
     const precioOriginal = publicacion.getPrecioOriginal();
-    const descuento = publicacion.descuento
+    const descuento = publicacion.getDescuento();
     const nivel = publicacion.getArticulo().getNivel();
     const variante = getClave(publicacion.getArticulo().getVariante());
 
@@ -30,7 +30,7 @@ function parseProductString(productString: string) {
     return productInfo;
 }
 
-export async function recuperarFromUrl(url: string) {
+export async function recuperarFromUrl(url: string): Promise<Publicacion> {
 
     const valores = parseProductString(url);
     

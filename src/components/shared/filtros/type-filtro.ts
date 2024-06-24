@@ -1,4 +1,4 @@
-import { Atributos } from "app/services/typos";
+import { Atributo } from "app/services/typos";
 
 function getObjects() {
     const result = [];
@@ -17,8 +17,8 @@ function getObjects() {
 }
 
 const filtrosType = {
-    atributos: Object.keys(Atributos),
-    valores: Object.values(Atributos),
+    atributos: Object.keys(Atributo),
+    valores: Object.values(Atributo),
     getObjects: getObjects
 }
 
