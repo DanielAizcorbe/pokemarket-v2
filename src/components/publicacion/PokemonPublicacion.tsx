@@ -21,8 +21,8 @@ export async function PokemonPublicacion(props: Props) {
                 <PublicacionDetalle 
                     articulo={articulo}
                     descripcion={publicacion.descripcion()}
-                    descuento={publicacion.descuento}
-                    precioDescuento={publicacion.precioDescuento}
+                    descuento={publicacion.getDescuento()}
+                    precioDescuento={publicacion.precio()}
                     precioOriginal={publicacion.getPrecioOriginal()}
                 />
                 <PublicacionCompra />
