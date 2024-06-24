@@ -6,6 +6,7 @@ import { getSizeCard } from "./utils/sizeCard"
 import { distributionType, sizeType } from "./utils/sizes"
 import Link from "next/link"
 import { getUrlFrom } from "app/classes/publicacion/getUrlPublicacion"
+import CardImageV2 from "./utils/CardImageV2"
 
 interface CardProps {
     publicacion: Publicacion,
@@ -28,20 +29,20 @@ export const Card = (props: CardProps) => {
             <div className={`${size.heightContainer} ${size.widthContainer} ${size.fontSize} p-2 shadow-md rounded-md flex ${isVertical ? "flex-col" : ""}`}>
                 <div className={containerSize}>
                     <CardImage
-                        alt={publicacion.articulo.descripcion()}
-                        src={publicacion.articulo.defaultSprite()}
+                        alt={publicacion.getArticulo().descripcion()}
+                        src={publicacion.getArticulo().defaultSprite()}
                         zoom={size.zoom}
                     />
                 </div>
                 <div className={`flex flex-col h-full justify-evenly ${containerSize}`}>
                     <CardDescription
-                        description={publicacion.articulo.descripcion()}
+                        description={publicacion.getArticulo().descripcion()}
                     />
                     <CardPrecio
                         fontSize={size.fontSizeImportant}
-                        descuento={publicacion.descuento}
-                        precioDescuento={publicacion.precioDescuento}
-                        precioOriginal={publicacion.precioOriginal}
+                        descuento={publicacion.getDescuento()}
+                        precioDescuento={publicacion.precio()}
+                        precioOriginal={publicacion.getPrecioOriginal()}
                     />
                 </div>
             </div>

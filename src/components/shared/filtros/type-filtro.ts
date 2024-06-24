@@ -2,8 +2,8 @@ import { Atributo } from "app/services/typos";
 
 function getObjects() {
     const result = [];
-    const valores = filtrosType.valores;
-    const atributos = filtrosType.atributos;
+    const valores = filtrosType.valores.filter(v => v !== Atributo.DESCONOCIDO);
+    const atributos = filtrosType.atributos.filter(v => v !== "DESCONOCIDO");
 
     for (let index = 0; index < filtrosType.atributos.length; index++) {
         const element = {
